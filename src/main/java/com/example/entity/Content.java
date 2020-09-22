@@ -63,7 +63,7 @@ public class Content implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created date", nullable = false, length = 29)
+	@Column(name = "created_date", nullable = false, length = 29)
 	public Date getCreatedDate() {
 		return this.createdDate;
 	}
