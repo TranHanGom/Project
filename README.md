@@ -27,4 +27,7 @@ Create a website that have the following functions:
 **Frontend:** HTML, Javascript and any Library that the trainee choose to use  
 **DB      :** Postgresql  
 **Note :**  
-Build front-end source and back-end source on different server, using RESTFUL HTTP Request for communication.
+Build front-end source and back-end source on different server, using RESTFUL HTTP Request for communication.  
+**Hint:**  
+Use SpringSecurity OAuth2 for authorization.  
+Understanding HTTP RESTFUL Request, differ between @Controller and @RestController  
