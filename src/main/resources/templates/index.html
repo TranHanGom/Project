@@ -1,15 +1,53 @@
   <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Spring Boot Application</title>
+   
+   
+   
 
-<title>Content</title>
-</head>
-<body>
-<p>CONTENT</p>
-<div th:each="content : ${contents}">
-<a th:text="${content.content}"></a>
+    <!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet" >
 
+  
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
 
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+  <main role="main" class="inner cover" th:each="content : ${contents}">
+    <h1 class="cover-heading" th:text="${content.header}"></h1>
+    <p class="lead" th:text="${content.content}" ></p>
+  
+  </main>
+
+  <footer class="mastfoot mt-auto" th:each="content : ${contents}">
+    <div class="inner">
+      <p>This content is created by <a href="https://getbootstrap.com/" th:text="${content.createdUser}"></a> at <a href="https://twitter.com/mdo" th:text="${content.createdDate}"></a>.</p>
+    </div>
+  </footer>
 </div>
-
 </body>
 </html>

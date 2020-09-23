@@ -1,5 +1,5 @@
 package com.example.entity;
-// Generated Sep 21, 2020, 2:59:37 PM by Hibernate Tools 5.1.10.Final
+// Generated Sep 23, 2020, 10:36:20 AM by Hibernate Tools 5.1.10.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -63,7 +63,7 @@ public class Content implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_date", nullable = false, length = 29)
+	@Column(name = "created_date", nullable = false, length = 35)
 	public Date getCreatedDate() {
 		return this.createdDate;
 	}
