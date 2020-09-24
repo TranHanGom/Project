@@ -1,5 +1,6 @@
 package com.example.service;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -25,6 +26,7 @@ import java.util.Set;
 
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository userRepository;
@@ -39,25 +41,29 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	@Transactional
+	
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
-
-		User user = userRepository.findByUsername(username);
-		if (user == null)
-			throw new UsernameNotFoundException(username);
-
-		Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-//		        for (Role role : user.getRoles()){
-//		            grantedAuthorities.add(new SimpleGrantedAuthority(role.getRoleName()));
-//		        }
-
-		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
-				grantedAuthorities);
+		 User user = userRepository.findByUsername(username)    
+	                .orElseThrow(() -> new UsernameNotFoundException("User: " + username + " not found"));    
+	        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),    
+	                Arrays.asList(new SimpleGrantedAuthority("user")));
+	        
+	//	User user = userRepository.findByUsername(username);
+//		if (user == null)
+//			throw new UsernameNotFoundException(username);
+//
+//		Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
+////		        for (Role role : user.getRoles()){
+////		            grantedAuthorities.add(new SimpleGrantedAuthority(role.getRoleName()));
+////		        }
+//
+//		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
+//				grantedAuthorities);
 	}
 
 	@Override
-	public User findByUserName(String username) {
+	public Optional<User> findByUserName(String username) {
 		// TODO Auto-generated method stub
 		return userRepository.findByUsername(username);
 	}
