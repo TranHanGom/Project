@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.example.entity.User;
 
-public interface IService  extends UserDetailsService{
+public interface IService  {
     User findByUsername(String username);
 
 	List<User> findAllUsers();

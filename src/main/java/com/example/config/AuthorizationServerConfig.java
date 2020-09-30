@@ -26,8 +26,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+//    @Autowired
+//    private UserDetailsService userDetailsService;
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -45,7 +45,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .reuseRefreshTokens(false)
                 .accessTokenConverter(accessTokenConverter)
                 .authenticationManager(authenticationManager)
-                .userDetailsService(userDetailsService)
+                //.userDetailsService(userDetailsService)
                 ;
 
 
